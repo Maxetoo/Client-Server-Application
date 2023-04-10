@@ -28,7 +28,6 @@ const errorMiddleware = require('./middlewares/errorMiddleware')
 const notFoundMiddleware = require('./middlewares/notFoundRoute')
 const swaggerUi = require('swagger-ui-express')
 const YAML = require('yamljs')
-const { log } = require('console')
 const swaggerDocument = YAML.load('./swagger.yaml')
 
 // app.use(express.static(path.resolve(__dirname, './client/build')))
@@ -38,6 +37,7 @@ app.use(express.static(path.resolve('./frontend/build')))
 app.use(
   cors({
     credentials: true,
+    origin: 'https://writeme.onrender.com',
   })
 )
 app.use(fileUploader({ useTempFiles: true }))
