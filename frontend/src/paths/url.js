@@ -1,1 +1,1 @@
-export const URL = 'https://writemi.onrender.com'
+export const URL = 'https://writeme.onrender.com'

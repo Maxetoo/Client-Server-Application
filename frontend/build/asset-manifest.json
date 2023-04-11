@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/static/css/main.eea26872.css",
-    "main.js": "/static/js/main.dab3b50e.js",
+    "main.js": "/static/js/main.32f3cf12.js",
     "static/media/messaging.jpg": "/static/media/messaging.4b04fc972d172d5bd46e.jpg",
     "static/media/connected.jpg": "/static/media/connected.f0adaf73f0a7808044e9.jpg",
     "static/media/mellow-success.png": "/static/media/mellow-success.e7ee06e8579cb4ad38a6.png",
     "index.html": "/index.html",
     "main.eea26872.css.map": "/static/css/main.eea26872.css.map",
-    "main.dab3b50e.js.map": "/static/js/main.dab3b50e.js.map"
+    "main.32f3cf12.js.map": "/static/js/main.32f3cf12.js.map"
   },
   "entrypoints": [
     "static/css/main.eea26872.css",
-    "static/js/main.dab3b50e.js"
+    "static/js/main.32f3cf12.js"
   ]
 }

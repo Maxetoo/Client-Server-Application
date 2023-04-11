@@ -18,7 +18,6 @@ const createCookie = (res, token) => {
     expires: new Date(Date.now() + finalDate),
     signed: true,
     secure: true,
-    // sameSite: 'strict',
   })
   return {
     name: 'token',

@@ -57,7 +57,6 @@ export const userLogin = createAsyncThunk(
         },
         {
           withCredentials: true,
-          credentials: 'include',
         }
       )
       window.location.href = '/home'
