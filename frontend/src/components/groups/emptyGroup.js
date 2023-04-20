@@ -6,10 +6,11 @@ const EmptyGroup = () => {
   const navigate = useNavigate()
   return (
     <Wrapper>
-      {/* <img
-        src='https://ouch-cdn2.icons8.com/FJEiV3x9qjSs-JComNUliI-fOzwuRCzNqohb5e_aexU/rs:fit:256:256/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9zdmcvNTg4/Lzg2YTMxMTI2LTc4/NzktNDI4My05Yjky/LWYyMjliNDc0OGU4/NC5zdmc.png'
+      <img
+        src='self'
+        data='https://ouch-cdn2.icons8.com/FJEiV3x9qjSs-JComNUliI-fOzwuRCzNqohb5e_aexU/rs:fit:256:256/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9zdmcvNTg4/Lzg2YTMxMTI2LTc4/NzktNDI4My05Yjky/LWYyMjliNDc0OGU4/NC5zdmc.png'
         alt='empty'
-      /> */}
+      />
       <h3>Nothing yet..😅</h3>
       <p>Tap on the add button to create group</p>
       <button type='button' onClick={() => navigate('/groups/createGroup')}>

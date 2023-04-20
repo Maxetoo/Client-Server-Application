@@ -51,7 +51,7 @@ const login = async (req, res) => {
     role: user.role,
     userID: user._id,
   }
-  const login_cookie = createCookie(res, token);
+  const login_cookie = createCookie(res, token)
   res.status(StatusCodes.OK).json({
     user,
     login_cookie,
@@ -178,12 +178,10 @@ const forgotPassword = async (req, res) => {
 
   const finalDate = 20 * (1000 * 60)
   res.cookie('validEmail', uniqid(), {
-    httpOnly: true,
+    httpOnly: false,
     expires: new Date(Date.now() + finalDate),
     signed: true,
-    secure: process.env.NODE_ENV === 'production',
-    // sameSite: process.env.NODE_ENV === 'development' ? true : 'None',
-    SameSite: 'None',
+    secure: true,
   })
 
   res.status(StatusCodes.OK).json({
@@ -204,12 +202,10 @@ const confirmToken = async (req, res) => {
   const finalDate = 20 * (1000 * 60)
 
   res.cookie('validToken', user.username, {
-    httpOnly: true,
+    httpOnly: false,
     expires: new Date(Date.now() + finalDate),
     signed: true,
-    secure: process.env.NODE_ENV === 'production',
-    // sameSite: process.env.NODE_ENV === 'development' ? true : 'None',
-    SameSite: 'None',
+    secure: true,
   })
 
   res.status(StatusCodes.OK).json({

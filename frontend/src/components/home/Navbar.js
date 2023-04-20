@@ -44,7 +44,7 @@ const Navbar = () => {
                   <div className='icon'>
                     {activeNav === index ? activeIcon : icon}
                   </div>
-                  <p>{title}</p>
+                  <p className='nav-title'>{title}</p>
                 </div>
               </Link>
             )
@@ -68,6 +68,7 @@ const Navbar = () => {
 }
 
 const Wrapper = styled.nav`
+  @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
   width: 100%;
   height: 80px;
   position: fixed;
@@ -79,7 +80,7 @@ const Wrapper = styled.nav`
   background: var(--dark-secondary);
   color: var(--white-col);
   z-index: 999 !important;
-  padding: 1.5rem;
+  padding: 2rem;
 
   a {
     width: 100%;
@@ -104,12 +105,14 @@ const Wrapper = styled.nav`
   }
 
   .icon {
-    font-size: 1.5em;
+    font-size: 1.7em;
   }
 
-  p {
-    font-size: 0.8em;
-    margin-top: -0.2rem;
+  .nav-title {
+    font-size: 0.7em;
+    margin-top: -0.3rem;
+    padding-bottom: 0.2rem;
+    font-family: 'Varela Round', sans-serif;
   }
 
   @media only screen and (min-width: 600px) {
@@ -150,7 +153,7 @@ const OfflineWrapper = styled.nav`
   z-index: 999 !important;
   padding: 1rem 2rem 1rem 2rem;
 
-  p {
+  .nav-title {
     margin-right: 1rem;
     font-size: 0.85em;
     opacity: 0.8;

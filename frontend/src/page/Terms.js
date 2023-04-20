@@ -59,7 +59,7 @@ const Terms = () => {
             images, and software, are the property of writemi or its licensors
             and are protected by copyright and trademark laws. You may not use
             any content or materials on the app for any commercial purpose
-            without the express written consent of writemi.
+            without the express written consent of writeme.
           </li>
           <li>
             Indemnification. You agree to indemnify and hold writemi and its
@@ -79,7 +79,7 @@ const Terms = () => {
             With the help of cookies, We are able to keep you logged in.
           </li>
         </ol>
-        <h3>Thank you for using writemi!</h3>
+        <h3>Thank you for using writeme!</h3>
       </div>
     </Wrapper>
   )

@@ -68,7 +68,7 @@ const GroupMessage = ({ message, _id, createdAt }) => {
 }
 
 const Wrapper = styled.article`
-  width: 80%;
+  width: 85%;
   min-height: 200px;
   border-radius: 5px;
   text-align: center;
@@ -87,16 +87,19 @@ const Wrapper = styled.article`
     align-items: center;
     justify-content: center;
     width: 100%;
+    margin-top: 1rem;
   }
 
   h3 {
     margin: 0.5rem;
     width: 100%;
     text-align: start;
+    font-size: 1em;
   }
 
   p {
     margin: 0.5rem;
+    font-size: 1em;
   }
 
   .time-stamp {

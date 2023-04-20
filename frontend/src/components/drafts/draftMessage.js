@@ -75,7 +75,7 @@ const DraftMessage = ({ dateCreated, dateUpdated, message, source, _id }) => {
 }
 
 const Wrapper = styled.article`
-  width: 80%;
+  width: 85%;
   min-height: 200px;
   border-radius: 5px;
   text-align: center;

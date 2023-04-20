@@ -54,14 +54,13 @@ const Homemain = () => {
         <>
           <img src={Logo} alt='logo' />
           <h3>{getUsername || username} Profile</h3>
-          <div className='link-board'>
-            <p className='link-name'>{currentUrl}</p>
-            <div
-              className='copy-container'
-              onClick={() => dispatch(copyToClipboard(currentUrl))}
-            >
-              <RxCopy className='copy-icon' />
-            </div>
+          Tap to copy link
+          <div className='link-name'>{currentUrl}</div>
+          <div
+            className='copy-container'
+            onClick={() => dispatch(copyToClipboard(currentUrl))}
+          >
+            <RxCopy className='copy-icon' />
           </div>
           <div className='navigation-container'>
             {homeData.map((value, index) => {
@@ -122,29 +121,12 @@ const Wrapper = styled.article`
     margin: 1rem;
   }
 
-  .link-board {
-    width: 90%;
-    height: 40px;
-    background: white;
-    /* background: #05059b; */
-    /* background: #bbd1f4; */
-    /* color: white; */
-    color: black;
-    border-radius: 5px;
-    /* color: black; */
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem;
-    margin: 2rem;
-    border: solid 1px black;
-    cursor: pointer;
+  .link-name {
     opacity: 0.8;
+    margin: 0.2rem;
   }
 
   .copy-container {
-    border-left: solid 1px black;
     padding-left: 1rem;
   }
 

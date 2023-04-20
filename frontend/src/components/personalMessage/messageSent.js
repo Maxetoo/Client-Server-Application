@@ -1,8 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import Mail from '../../assets/images/mail-illustration.png'
+import { useNavigate } from 'react-router-dom'
 
 const MessageSent = () => {
+  const navigate = useNavigate()
   return (
     <Wrapper>
       <img src={Mail} alt='message delivered' />
@@ -10,7 +12,9 @@ const MessageSent = () => {
       <p className='guide'>
         Create your profile to start sending and receiving anonymous messages
       </p>
-      <button type='button'>Create Profile</button>
+      <button type='button' onClick={() => navigate('/home')}>
+        Go Back
+      </button>
     </Wrapper>
   )
 }
@@ -18,10 +22,6 @@ const MessageSent = () => {
 const Wrapper = styled.article`
   width: 80%;
   min-height: 200px;
-  /* border-radius: 5px;
-  text-align: center;
-  background: #435c6d;
-  color: #ffffff; */
   margin: 1rem;
   display: flex;
   flex-direction: column;

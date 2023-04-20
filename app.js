@@ -30,8 +30,6 @@ const swaggerUi = require('swagger-ui-express')
 const YAML = require('yamljs')
 const swaggerDocument = YAML.load('./swagger.yaml')
 
-// app.use(express.static(path.resolve(__dirname, './client/build')))
-// middlewares
 app.use(express.static(path.resolve('./frontend/build')))
 
 app.use(cors({ credentials: true, origin: 'https://writeme.onrender.com' }))
