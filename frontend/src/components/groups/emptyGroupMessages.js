@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useNavigate, useLocation, useParams } from 'react-router-dom'
+import Empty from '../../assets/images/Empty Illustration.png'
 
 const EmptyGroup = () => {
   const { id } = useParams()
@@ -18,10 +19,7 @@ const EmptyGroup = () => {
   const navigate = useNavigate()
   return (
     <Wrapper>
-      <img
-        src='https://ouch-cdn2.icons8.com/FJEiV3x9qjSs-JComNUliI-fOzwuRCzNqohb5e_aexU/rs:fit:256:256/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9zdmcvNTg4/Lzg2YTMxMTI2LTc4/NzktNDI4My05Yjky/LWYyMjliNDc0OGU4/NC5zdmc.png'
-        alt='empty'
-      />
+      <img src={Empty} alt='empty' />
       <h3>Nothing yet..😅</h3>
       <p>Tap on the share button to invite people to add messages</p>
       <button type='button' onClick={shareUrl}>
@@ -44,10 +42,11 @@ const Wrapper = styled.article`
   align-items: center;
   justify-content: space-between;
   padding: 1rem;
-  /* border: solid 1px black; */
 
   img {
-    margin-top: -4rem;
+    margin-top: -2rem;
+    width: 200px;
+    height: 200px;
   }
 
   p {

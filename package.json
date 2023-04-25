@@ -29,6 +29,7 @@
         "swagger-ui-express": "^4.6.0",
         "uniqid": "^5.4.0",
         "validator": "^13.7.0",
+        "xss": "^1.0.14",
         "yamljs": "^0.3.0"
     }
 }
