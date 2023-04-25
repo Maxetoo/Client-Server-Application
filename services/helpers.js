@@ -19,15 +19,6 @@ const createCookie = (res, token) => {
     signed: true,
     secure: true,
   })
-  return {
-    name: 'token',
-    value: userToken,
-    httpOnly: false,
-    expires: new Date(Date.now() + finalDate),
-    signed: true,
-    secure: true,
-    sameSite: 'strict',
-  }
 }
 
 module.exports = {

@@ -25,10 +25,7 @@ const register = async (req, res) => {
     password,
     role: isAdmin,
   })
-  res.cookie('token', 'register', {
-    expires: new Date(Date.now()),
-    httpOnly: true,
-  })
+
   res.status(StatusCodes.CREATED).json({
     user,
   })
@@ -51,19 +48,14 @@ const login = async (req, res) => {
     role: user.role,
     userID: user._id,
   }
-  const login_cookie = createCookie(res, token)
+  createCookie(res, token)
   res.status(StatusCodes.OK).json({
     user,
-    login_cookie,
-    msg: 'sending login cookie',
   })
 }
 
 const logout = async (req, res) => {
-  res.cookie('token', 'logout', {
-    expires: new Date(Date.now()),
-    httpOnly: true,
-  })
+  res.clearCookie('token')
   res.status(StatusCodes.OK).json({
     msg: `User logged out successfully`,
   })
@@ -95,7 +87,7 @@ const forgotPassword = async (req, res) => {
     subject: 'Password Reset', // Subject line
     html: `
     <!doctype html>
-<html lang="en-US">
+<html lang="en-US"> 
 
 <head>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />

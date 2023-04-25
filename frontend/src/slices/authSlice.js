@@ -234,9 +234,9 @@ const authSlice = createSlice({
     killResetPasswordAlert: (state, action) => {
       state.resetError = false
     },
-    updateCookieState: (state, action) => {
-      state.userCookie = document.cookie.startsWith('token')
-    },
+    // updateCookieState: (state, action) => {
+    //   state.userCookie = document.cookie.startsWith('token')
+    // },
     defaultResetPasswordPass: (state, action) => {
       state.passwordResetSuccessful = false
     },
@@ -357,7 +357,6 @@ export const {
   toggleSignupPasswordVisibility,
   fillAuthInputs,
   alertErrorKill,
-  updateCookieState,
   fillEmail,
   killForgotPasswordAlert,
   fillResetToken,

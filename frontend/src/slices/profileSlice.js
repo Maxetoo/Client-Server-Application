@@ -24,8 +24,10 @@ export const userLogout = createAsyncThunk(
         withCredentials: true,
       })
       window.location.href = '/login'
+      console.log(true)
       return { response: resp.data, status: 'success' }
     } catch (error) {
+      console.log(error)
       return {
         response: error.response.data,
         status: 'error',

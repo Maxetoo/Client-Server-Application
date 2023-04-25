@@ -111,6 +111,7 @@ const Wrapper = styled.article`
 
   h3 {
     margin: 1rem;
+    font-size: 1.5em;
   }
 
   .header {
@@ -124,6 +125,7 @@ const Wrapper = styled.article`
   .link-name {
     opacity: 0.8;
     margin: 0.2rem;
+    font-size: 0.8em;
   }
 
   .copy-container {

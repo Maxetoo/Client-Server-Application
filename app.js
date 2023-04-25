@@ -32,7 +32,12 @@ const swaggerDocument = YAML.load('./swagger.yaml')
 
 app.use(express.static(path.resolve('./frontend/build')))
 
-app.use(cors({ credentials: true, origin: 'https://writeme.onrender.com' }))
+app.use(
+  cors({
+    credentials: true,
+    origin: ['https://writeme.onrender.com', 'https://ouch-cdn2.icons8.com'],
+  })
+)
 app.use(fileUploader({ useTempFiles: true }))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))

@@ -8,11 +8,7 @@ import {
   useNavigate,
 } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import {
-  userIsLoggedIn,
-  updateCookieState,
-  setUsernameToLocalStorage,
-} from './slices/authSlice'
+import { userIsLoggedIn, setUsernameToLocalStorage } from './slices/authSlice'
 import { setDraftToLocalStorage } from './slices/draftSlice'
 import { setOnboardingToLocalStorage, exitSearch } from './slices/eventSlice'
 import {
@@ -75,10 +71,6 @@ const App = () => {
   useEffect(() => {
     dispatch(setOnboardingToLocalStorage())
   }, [onboardingDone])
-
-  useEffect(() => {
-    dispatch(updateCookieState())
-  }, [userCookie])
 
   useEffect(() => {
     dispatch(setDraftToLocalStorage())
