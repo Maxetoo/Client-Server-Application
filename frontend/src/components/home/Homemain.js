@@ -48,20 +48,10 @@ const Homemain = () => {
   }
   return (
     <Wrapper>
-      {loading ? (
-        <Loader />
-      ) : (
+      
         <>
           <img src={Logo} alt='logo' />
-          <h3>{getUsername || username} Profile</h3>
-          Tap to copy link
-          <div className='link-name'>{currentUrl}</div>
-          <div
-            className='copy-container'
-            onClick={() => dispatch(copyToClipboard(currentUrl))}
-          >
-            <RxCopy className='copy-icon' />
-          </div>
+          <h3>{getUsername || username || ''} Profile</h3>
           <div className='navigation-container'>
             {homeData.map((value, index) => {
               const { icon, activeIcon, id, title, link } = value
@@ -88,7 +78,6 @@ const Homemain = () => {
             </button>
           </div>
         </>
-      )}
       {textCopied && <AlertSuccess message={'URL copied'} />}
     </Wrapper>
   )

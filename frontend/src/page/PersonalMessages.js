@@ -170,7 +170,7 @@ const PersonalMessages = () => {
           })
         )}
       </div>
-      {totalMessages > 7 && (
+      {totalMessages > 7 && !loading && (
         <div className='pagination-container'>
           <div className='pagination'>
             <span

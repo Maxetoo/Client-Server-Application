@@ -24,6 +24,7 @@ const editProfile = async (req, res) => {
   const { username, email } = req.body
   if (!username || !email)
     throw new CustomError.BadRequestError('Please fill up all credentails')
+
   const user = await User.findOne({
     _id: userID,
   })

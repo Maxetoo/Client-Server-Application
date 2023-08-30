@@ -30,10 +30,10 @@ const swaggerDocument = YAML.load('./swagger.yaml')
 
 app.use(express.static(path.resolve('./frontend/build')))
 
-app.use(
+app.use( 
   cors({
     credentials: true,
-    origin: ['https://writeme.onrender.com', 'https://ouch-cdn2.icons8.com'],
+    origin: ['https://writeme.onrender.com', 'https://ouch-cdn2.icons8.com', 'https://res.cloudinary.com', 'https://img.freepik.com'],
   })
 )
 app.use(fileUploader({ useTempFiles: true }))
@@ -71,7 +71,7 @@ const startApp = async () => {
     app.listen(port, console.log(`app is listening to port ${port}...`))
   } catch (error) {
     console.log(error.message)
-  }
+  } 
 }
 
 startApp()
