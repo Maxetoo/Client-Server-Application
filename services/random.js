@@ -6,6 +6,9 @@ const generateNums = () => {
   return numbers
 }
 
+
 module.exports = {
   generateNums,
 }
+
+

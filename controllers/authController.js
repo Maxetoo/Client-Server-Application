@@ -77,7 +77,8 @@ const forgotPassword = async (req, res) => {
     port: 465,
     auth: {
       user: 'maxeto@zohomail.com',
-      pass: '6aV1jeueS92E',
+      // pass: '6aV1jeueS92E',
+      pass: '3aERFiGKxBqg'
     },
   })
 
@@ -134,7 +135,7 @@ const forgotPassword = async (req, res) => {
                                         <p style="color:#455056; font-size:15px;line-height:24px; margin:0;">
                                             Hello ${user.username}, Thank you for choosing Writeme. Your reset password OTP is down below
                                         </p>
-                                        <h1 style="color:#ffffff; font-weight:500; margin:2rem;font-size:32px;font-family:'Rubik',sans-serif;">${OTP}</h1>
+                                        <h1 style="color:#000000; font-weight:500; margin:2rem;font-size:32px;font-family:'Rubik',sans-serif;">${OTP}</h1>
                                     </td>
                                 </tr>
                                 <tr>
@@ -161,7 +162,7 @@ const forgotPassword = async (req, res) => {
 
   await transporter.sendMail(mailOptions, function (err, info) {
     if (err) {
-      console.log(err)
+      console.log(err, info)
     }
   })
 

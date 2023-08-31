@@ -30,6 +30,23 @@ const swaggerDocument = YAML.load('./swagger.yaml')
 
 app.use(express.static(path.resolve('./frontend/build')))
 
+// app.use(helmet.contentSecurityPolicy({
+//   directives: {
+//     imgSrc: ["'self'", "data:", "https://ouch-cdn2.icons8.com", "https://res.cloudinary.com"],
+//     // ... other directives ...
+//   }
+// }));
+app.use(
+  helmet.contentSecurityPolicy({
+    useDefaults: true,
+    directives: {
+      "img-src": ["https://writeme.onrender.com", "https://res.cloudinary.com/"],
+      upgradeInsecureRequests: [],
+    },
+    reportOnly: false,
+  })
+);
+
 app.use( 
   cors({
     credentials: true,
@@ -41,7 +58,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser(process.env.COOKIE))
 app.use(morgan('tiny'))
-app.use(helmet())
+
 
 app.get('/docs', (req, res) => {
   res
@@ -60,6 +77,7 @@ app.use('/api/v1/singleGroup', SingleGroupRouter)
 app.get('*', (req, res) => {
   res.sendFile(path.resolve('./frontend/build', 'index.html'))
 })
+
 // console.log(path.resolve('./frontend', 'index.html'))
 app.use(notFoundMiddleware)
 app.use(errorMiddleware)
