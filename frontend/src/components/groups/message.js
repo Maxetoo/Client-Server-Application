@@ -1,20 +1,12 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { useDispatch, useSelector } from 'react-redux'
-import { HiOutlineDotsVertical } from 'react-icons/hi'
-import { MdOutlineArrowBackIosNew, MdDelete } from 'react-icons/md'
 import {
   BsBookmarksFill,
-  BsBookmarks,
-  BsChatRightTextFill,
-  BsChatRightText,
-  BsFacebook,
-  BsFlagFill,
 } from 'react-icons/bs'
 import { configTime } from '../../config/moment'
-import { flagGroupMessage } from '../../slices/singleGroupSlice'
 import { addToBookmark } from '../../slices/bookmarkSlice'
-import { getSingleGroup } from '../../slices/groupMsgSlice'
+
 
 import {
   Link,
@@ -52,16 +44,6 @@ const GroupMessage = ({ message, _id, createdAt }) => {
           <BsBookmarksFill className='bookmark' />
           Bookmark Response
         </button>
-        {/* <button
-          type='button'
-          className='flag-btn'
-          onClick={() => {
-            dispatch(flagGroupMessage(_id))
-          }}
-        >
-          <BsFlagFill className='flag' />
-          Flag Response
-        </button> */}
       </div>
     </Wrapper>
   )

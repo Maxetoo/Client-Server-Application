@@ -16,6 +16,8 @@ import {
   userLogin,
   alertErrorKill,
 } from '../slices/authSlice'
+import { Helmet } from 'react-helmet';
+
 
 const Login = () => {
   const {
@@ -46,6 +48,9 @@ const Login = () => {
 
   return (
     <Wrapper>
+      <Helmet>
+        <title>{`Login - Writemi`}</title>
+      </Helmet>
       <img src={HalfLogo} alt='writeme-logo' />
       <h2>Welcome</h2>
       <p className='sign'>sign in to continue</p>

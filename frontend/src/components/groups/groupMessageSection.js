@@ -145,7 +145,7 @@ const GroupMessageSection = () => {
       </div>
       {(loginPrompt || bookmarkLoginPrompt) && <SignupPrompt />}
       <div className='group-message-container'>
-        {isLoading ? (
+        {isLoading && messageEntries.length === 0  ? (
           <Loader />
         ) : messageEntries.length === 0 && searchValue.length > 0 ? (
           <NoSearchResult />

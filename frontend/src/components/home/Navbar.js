@@ -170,6 +170,7 @@ const OfflineWrapper = styled.nav`
     border-radius: 5px;
     cursor: pointer;
     font-size: 0.8em;
+    margin-left: 1.5rem;
   }
 `
 

@@ -12,9 +12,9 @@ const helmet = require('helmet')
 const cors = require('cors')
 const cloudinary = require('cloudinary').v2
 cloudinary.config({
-  cloud_name: process.env.CLOUD_NAME,
-  api_key: process.env.CLOUD_API_KEY,
-  api_secret: process.env.CLOUD_API_SECRET,
+    cloud_name: process.env.CLOUD_NAME,
+    api_key: process.env.CLOUD_API_KEY,
+    api_secret: process.env.CLOUD_API_SECRET,
 })
 const AuthRouter = require('./routes/authRoute')
 const UserRouter = require('./routes/userRoute')
@@ -31,39 +31,30 @@ const swaggerDocument = YAML.load('./swagger.yaml')
 app.use(express.static(path.resolve('./frontend/build')))
 
 app.use(helmet.contentSecurityPolicy({
-  directives: {
-    imgSrc: ["'self'", "data:", "https://ouch-cdn2.icons8.com", "https://res.cloudinary.com/"],
-    // ... other directives ...
-  }
+    directives: {
+        imgSrc: ["'self'", "data:", "https://ouch-cdn2.icons8.com", "https://res.cloudinary.com/"],
+        // ... other directives ...
+    }
 }));
-// app.use(
-//   helmet.contentSecurityPolicy({
-//     useDefaults: true,
-//     directives: {
-//       "img-src": ["https://res.cloudinary.com/"],
-//       upgradeInsecureRequests: [],
-//     },
-//     reportOnly: false,
-//   })
-// );
 
-app.use( 
-  cors({
-    credentials: true,
-    origin: ['https://writeme.onrender.com', 'https://ouch-cdn2.icons8.com', 'https://res.cloudinary.com', 'https://img.freepik.com'],
-  })
+
+app.use(
+    cors({
+        credentials: true,
+        origin: ['https://writeme.onrender.com', 'https://ouch-cdn2.icons8.com', 'https://res.cloudinary.com', 'https://img.freepik.com'],
+    })
 )
 app.use(fileUploader({ useTempFiles: true }))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser(process.env.COOKIE))
-app.use(morgan('tiny'))
+app.use(morgan('tiny')) 
 
 
 app.get('/docs', (req, res) => {
-  res
-    .status(200)
-    .send(`<h1>Writemi Api</h1><a href="/api-docs">Documentation</a>`)
+    res
+        .status(200)
+        .send(`<h1>Writemi Api</h1><a href="/api-docs">Documentation</a>`)
 })
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
@@ -75,7 +66,7 @@ app.use('/api/v1/bookmark', BookmarkRouter)
 app.use('/api/v1/singleGroup', SingleGroupRouter)
 
 app.get('*', (req, res) => {
-  res.sendFile(path.resolve('./frontend/build', 'index.html'))
+    res.sendFile(path.resolve('./frontend/build', 'index.html'))
 })
 
 // console.log(path.resolve('./frontend', 'index.html'))
@@ -83,13 +74,13 @@ app.use(notFoundMiddleware)
 app.use(errorMiddleware)
 const port = process.env.PORT || 5000
 
-const startApp = async () => {
-  try {
-    await mongoose.connect(process.env.MONGO_URL)
-    app.listen(port, console.log(`app is listening to port ${port}...`))
-  } catch (error) {
-    console.log(error.message)
-  } 
+const startApp = async() => {
+    try {
+        await mongoose.connect(process.env.MONGO_URL)
+        app.listen(port, console.log(`app is listening to port ${port}...`))
+    } catch (error) {
+        console.log(error.message)
+    }
 }
 
 startApp()

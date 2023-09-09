@@ -80,6 +80,10 @@ const App = () => {
     if (location === '/' && userCookie) {
       navigate('/home')
     }
+
+    if (location === '/' && !userCookie) {
+      navigate('/login')
+    }
   }, [location])
 
   useEffect(() => {
@@ -203,7 +207,8 @@ const App = () => {
             path='/'
             element={
               <RedirectRoute>
-                <Onboarding />
+                {/* <Onboarding /> */}
+                <Login/>
               </RedirectRoute>
             }
           />

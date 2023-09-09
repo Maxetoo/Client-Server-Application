@@ -7,7 +7,7 @@ import { RxCopy } from 'react-icons/rx'
 import { homeData, socials } from '../../services/homeData'
 import Logo from '../../assets/images/half-logo.png'
 import { Loader, AlertSuccess } from '../../config'
-import { getProfileLogs } from '../../slices/profileSlice'
+import { getProfileLogs, getProfileStorage} from '../../slices/profileSlice'
 import { copyToClipboard, killCopyAlert } from '../../slices/eventSlice'
 import { setUsernameToLocalStorage } from '../../slices/authSlice'
 
@@ -26,6 +26,10 @@ const Homemain = () => {
   useEffect(() => {
     dispatch(getProfileLogs())
   }, [])
+
+  useEffect(() => {
+    dispatch(getProfileStorage())
+  }, [username]);
 
   useEffect(() => {
     if (textCopied) {
@@ -51,7 +55,7 @@ const Homemain = () => {
       
         <>
           <img src={Logo} alt='logo' />
-          <h3>{getUsername || username || ''} Profile</h3>
+          <h3>{getUsername || username || ''}{username && `'s`} Profile</h3>
           <div className='navigation-container'>
             {homeData.map((value, index) => {
               const { icon, activeIcon, id, title, link } = value

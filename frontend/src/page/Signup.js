@@ -16,6 +16,8 @@ import {
   userSignup,
   fillAuthInputs,
 } from '../slices/authSlice'
+import { Helmet } from 'react-helmet';
+
 
 const Signup = () => {
   const {
@@ -39,6 +41,9 @@ const Signup = () => {
 
   return (
     <Wrapper>
+      <Helmet>
+        <title>{`Signup - Writemi`}</title>
+      </Helmet>
       <h2>Create Your Writeme Account</h2>
       {isError && (
         <div className='alert-container'>

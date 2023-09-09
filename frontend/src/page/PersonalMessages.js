@@ -33,11 +33,13 @@ import {
   exitClearBtn,
   pageNavigator,
   pageToDefault,
+  getPersonalMessagesStorage
 } from '../slices/personalMsgSlice'
 import { IoMdClose } from 'react-icons/io'
 import { killBookmarkAlert } from '../slices/bookmarkSlice'
 // import {to} from '../slices/groupMsgSlice';
 import { fillSearchValue, toggleShowSearch } from '../slices/eventSlice'
+import { Helmet } from 'react-helmet';
 // MdOutlineArrowBackIosNew
 // HiOutlineDotsVertical
 // BiSearch
@@ -56,14 +58,20 @@ const PersonalMessages = () => {
     currentPage,
   } = useSelector((store) => store.messages)
   const { searchValue, showSearchInput } = useSelector((store) => store.actions)
+  const { profile } = useSelector((store) => store.profile)
   const { isError, alertMessage, bookmarkAdded } = useSelector(
     (store) => store.bookmarks
+    
   )
   const dispatch = useDispatch()
   const navigate = useNavigate()
   useEffect(() => {
     dispatch(getPersonalMessages())
   }, [])
+
+  useEffect(() => {
+    dispatch(getPersonalMessagesStorage())
+  }, [personalMessages]);
 
   useEffect(() => {
     if (deleteError || messageDeleted) {
@@ -85,6 +93,9 @@ const PersonalMessages = () => {
 
   return (
     <Wrapper>
+      <Helmet>
+        <title>{`Send ${profile.username} a friendly message - Writemi`}</title>
+      </Helmet>
       <div className='header'>
         <div className='header-icon back-btn' onClick={() => navigate('/home')}>
           <MdOutlineArrowBackIosNew />
@@ -158,7 +169,7 @@ const PersonalMessages = () => {
         className='message-container'
         onClick={() => dispatch(exitClearBtn())}
       >
-        {loading ? (
+        {loading && personalMessages.length === 0 ? (
           <Loader />
         ) : personalMessages.length === 0 && searchValue.length > 0 ? (
           <NoSearchResult />

@@ -50,9 +50,6 @@ const GroupMessages = () => {
         {!showSearchInput ? (
           <>
             <h3 className='header-title'>Groups ({groupEntries.length})</h3>
-            {/* <div className='header-icon menu'>
-          <HiOutlineDotsVertical />
-        </div> */}
             <div className='right-header-btns'>
               <div
                 className='header-icon search'
@@ -108,7 +105,7 @@ const GroupMessages = () => {
         </div>
       )}
       <div className='group-container' onClick={() => dispatch(exitClearBtn())}>
-        {loading ? (
+        {loading && groupEntries.length === 0  ? (
           <Loader />
         ) : groupEntries.length === 0 && searchValue.length > 0 ? (
           <NoSearchResult />

@@ -2,6 +2,15 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
 import { URL } from '../paths/url'
 
+const setProfileStorage = () => {
+  const storeProfile = localStorage.getItem('profile')
+  if (storeProfile) {
+    return JSON.parse(localStorage.getItem('profile'))
+  } else {
+    return ""
+  }
+}
+
 const initialState = {
   isError: false,
   loading: false,
@@ -105,6 +114,9 @@ const eventSlice = createSlice({
       state.isError = false
       state.editSuccess = false
     },
+    getProfileStorage: (state, action) => {
+      localStorage.setItem('profile', JSON.stringify(state.profile.username))
+    },
   },
   extraReducers(builder) {
     builder
@@ -156,5 +168,5 @@ const eventSlice = createSlice({
 })
 
 export default eventSlice.reducer
-export const { fillProfileInputs, togglePasswordVisibility, killAlertError } =
+export const { fillProfileInputs, togglePasswordVisibility, killAlertError, getProfileStorage} =
   eventSlice.actions

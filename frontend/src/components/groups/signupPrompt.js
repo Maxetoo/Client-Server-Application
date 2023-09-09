@@ -33,7 +33,7 @@ const SignupPrompt = () => {
           alt='not signed in'
         />
         <h3>
-          You're not on signed in to your account. Tap on the button to login
+          You're not signed in to your account.
         </h3>
         <button
           type='button'

@@ -2,6 +2,15 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
 import { URL } from '../paths/url'
 
+const setPersoanlMessagesStorage = () => {
+  const storeMessage = localStorage.getItem('personalMessages')
+  if (storeMessage) {
+    return JSON.parse(localStorage.getItem('personalMessages'))
+  } else {
+    return []
+  }
+}
+
 const initialState = {
   loading: false,
   isError: false,
@@ -159,6 +168,9 @@ const messageSlice = createSlice({
     exitClearBtn: (state, action) => {
       state.showClearBtn = false
     },
+    getPersonalMessagesStorage: (state, action) => {
+      localStorage.setItem('personalMessages', JSON.stringify(state.personalMessages))
+    },
     getMessageId: (state, action) => {
       // state.messageId = state.personalMessages.find(
       //   (value) => value._id === action.payload
@@ -277,4 +289,5 @@ export const {
   exitClearBtn,
   pageNavigator,
   pageToDefault,
+  getPersonalMessagesStorage
 } = messageSlice.actions
