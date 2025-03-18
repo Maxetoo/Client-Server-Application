@@ -11,7 +11,7 @@ const morgan = require('morgan')
 const helmet = require('helmet')
 const cors = require('cors')
 const cloudinary = require('cloudinary').v2
-cloudinary.config({
+cloudinary.config({ 
     cloud_name: process.env.CLOUD_NAME,
     api_key: process.env.CLOUD_API_KEY,
     api_secret: process.env.CLOUD_API_SECRET,
@@ -28,20 +28,20 @@ const swaggerUi = require('swagger-ui-express')
 const YAML = require('yamljs')
 const swaggerDocument = YAML.load('./swagger.yaml')
 
-app.use(express.static(path.resolve('./frontend/build')))
+// app.use(express.static(path.resolve('./frontend/build')))
 
 app.use(helmet.contentSecurityPolicy({
     directives: {
         imgSrc: ["'self'", "data:", "https://ouch-cdn2.icons8.com", "https://res.cloudinary.com/"],
         // ... other directives ...
     }
-}));
+})); 
 
-
+ 
 app.use(
     cors({
         credentials: true,
-        origin: ['https://writeme.onrender.com', 'https://ouch-cdn2.icons8.com', 'https://res.cloudinary.com', 'https://img.freepik.com'],
+        origin: ['http://localhost:3000', 'https://ouch-cdn2.icons8.com', 'https://res.cloudinary.com', 'https://img.freepik.com'],
     })
 )
 app.use(fileUploader({ useTempFiles: true }))
@@ -83,4 +83,4 @@ const startApp = async() => {
     }
 }
 
-startApp()
+startApp() 
