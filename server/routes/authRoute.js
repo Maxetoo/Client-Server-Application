@@ -2,6 +2,7 @@ const express = require('express')
 const AuthRoute = express.Router()
 const {
   register,
+  
   login,
   logout,
   forgotPassword,

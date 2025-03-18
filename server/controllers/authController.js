@@ -5,7 +5,7 @@ const { createCookie } = require('../services/helpers')
 let uniqid = require('uniqid')
 const { generateNums } = require('../services/random')
 const nodeMailer = require('nodemailer')
-
+ 
 const register = async (req, res) => {
   const { username, email, password } = req.body
   if (!username || !email || !password)
